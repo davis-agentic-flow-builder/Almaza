@@ -69,6 +69,7 @@ const Navbar = () => {
 const Hero = () => {
   const containerRef = useRef(null);
   const textRef = useRef(null);
+  const [heroLoaded, setHeroLoaded] = useState(false);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -106,9 +107,10 @@ const Hero = () => {
       {/* Background Image & Overlay */}
       <div className="absolute inset-0 z-0 bg-primary overflow-hidden">
         <img
-          src={`${BASE}hero-bg.png`}
+          src={`${BASE}hero-bg.webp`}
           alt="Almaza Dark Mode Render Backdrop"
-          className="w-full h-full object-cover"
+          className={`w-full h-full object-cover transition-opacity duration-700 ease-out ${heroLoaded ? 'opacity-100' : 'opacity-0'}`}
+          onLoad={() => setHeroLoaded(true)}
         />
         {/* Soft gradient overlay to blend the text area smoothly into the Midnight Luxe environment */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/60 to-transparent"></div>
