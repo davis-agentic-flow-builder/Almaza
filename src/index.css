@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-textDark font-sans antialiased overflow-x-hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-sans tracking-tight;
+  }
+}
+
+@layer utilities {
+  .noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.05;
+  }
+
+  /* Custom utility for the "magnetic" button sliding background */
+  .btn-magnetic {
+    @apply relative overflow-hidden rounded-[2rem] border border-transparent transition-all duration-300;
+  }
+
+  .btn-magnetic::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent);
+    transform: skewX(-20deg);
+    animation: shine 4s infinite cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  @keyframes shine {
+    0% {
+      left: -100%;
+      opacity: 0;
+    }
+
+    10% {
+      opacity: 1;
+    }
+
+    70% {
+      left: 200%;
+      opacity: 1;
+    }
+
+    100% {
+      left: 200%;
+      opacity: 0;
+    }
+  }
+
+  .btn-magnetic:hover {
+    transform: scale(1.03);
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .btn-content {
+    @apply relative z-10;
+  }
+}
