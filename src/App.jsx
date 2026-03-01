@@ -852,7 +852,7 @@ const Footer = () => {
 
         <div className="max-w-sm">
           <div className="mb-6">
-            <img src="/logo.png" alt="Almaza Logo" className="h-12 w-auto object-contain" />
+            <img src={`${BASE}logo.png`} alt="Almaza Logo" className="h-12 w-auto object-contain" />
           </div>
           <p className="text-white/50 font-mono text-sm mb-12">
             The standard in borderless utility. Powered by cryptographic precision.
