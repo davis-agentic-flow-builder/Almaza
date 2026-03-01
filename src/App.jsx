@@ -19,6 +19,8 @@ import {
 
 gsap.registerPlugin(ScrollTrigger);
 
+const BASE = import.meta.env.BASE_URL;
+
 // --- COMPONENTS ---
 
 // 1. NAVBAR - "The Floating Island"
@@ -43,7 +45,7 @@ const Navbar = () => {
         }`}
     >
       <div className="flex items-center flex-1 md:flex-none">
-        <img src="/logo.png" alt="Almaza Logo" className="h-10 w-auto object-contain" />
+        <img src={`${BASE}logo.png`} alt="Almaza Logo" className="h-10 w-auto object-contain" />
       </div>
       <div className="hidden md:flex items-center gap-8">
         {['Features', 'Philosophy', 'Protocol', 'Pricing'].map((item) => (
@@ -104,7 +106,7 @@ const Hero = () => {
       {/* Background Image & Overlay */}
       <div className="absolute inset-0 z-0 bg-primary overflow-hidden">
         <img
-          src="/hero-bg.png"
+          src={`${BASE}hero-bg.png`}
           alt="Almaza Dark Mode Render Backdrop"
           className="w-full h-full object-cover"
         />
@@ -687,19 +689,19 @@ const Testimonials = () => {
       quote: "Almaza hasn't just replaced my banking; it's redefined how I deploy capital across borders.",
       name: "Alexander Voss",
       role: "Founder, Arca Global",
-      img: "/alexander_voss.png"
+      img: `${BASE}alexander_voss.png`
     },
     {
       quote: "The speed of execution is unparalleled. From top-up to transaction, everything is friction-less.",
       name: "Elena Rossi",
       role: "CMO, Solis Creative",
-      img: "/elena_rossi.png"
+      img: `${BASE}elena_rossi.png`
     },
     {
       quote: "Finally, a financial instrument that matches the aesthetic and speed of high-end business.",
       name: "Marcus Thorne",
       role: "Director, OMNI Group",
-      img: "/marcus_thorne.png"
+      img: `${BASE}marcus_thorne.png`
     }
   ];
 
@@ -832,7 +834,7 @@ const DownloadCTA = () => {
 
         <div className="cta-image flex-[1.2] w-full max-w-4xl lg:-mr-32 scale-[1.5] md:scale-100 translate-x-12 md:translate-x-0 mt-12 md:mt-0">
           <img
-            src="/phone_and_card.webp"
+            src={`${BASE}phone_and_card.webp`}
             alt="Almaza Mobile App"
             className="w-full h-auto drop-shadow-[0_25px_50px_rgba(0,0,0,0.15)]"
           />
